@@ -10,12 +10,16 @@
     {% include "./components/opengraph.njk" %}
     {% endif %}
 
-    <title>FatDawlf - {{ title }}</title>
-    <meta name="description" content= "{{ description }}" >
-    {% if keywords != "" %}
-    <meta name="keywords" content= "{{ keywords }}" >
+    {% if isHero %}
+    <link rel="canonical" href="https://fatdawlf.art">
     {% endif %}
-    <!-- Styling -->
+
+    <title>FatDawlf - {{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    {% if keywords != "" %}
+    <meta name="keywords" content="{{ keywords }}">
+    {% endif %}
+
     <link rel="preconnect" href="/media">
     <link rel="icon" type="image/x-icon" href="/media/favicon.ico">
 
@@ -31,15 +35,15 @@
 
     {% include "./styles/vars.css" %}
     {% include "./styles/common.css" %}
-    
+
     {%- if hasBlob or hasDotGrid %}
     {% include "./styles/effects.css" %}
     {%- endif %}
-    
+
     {%- if isHero %}
     {% include "./styles/hero.css" %}
     {%- endif %}
-    
+
     {%- if is404 %}
     {% include "./styles/404.css" %}
     {%- endif %}
@@ -49,12 +53,12 @@
     {% include "./styles/prices.css" %}
     {% include "./styles/ych-labs.css" %}
     {%- endif %}
-    
+
     {%- if isCharacters %}
     {% include "./styles/accents.css" %}
     {% include "./styles/characters.css" %}
     {%- endif %}
-    
+
     {%- if isGallery %}
     {% include "./styles/gallery.css" %}
     {%- endif %}
@@ -78,29 +82,29 @@
     {%- if not hideNav %}
     {% include "./components/nav.njk" %}
     {%- endif %}
-    
+
     {% include "./components/effects.njk" %}
 
     {{ content | safe}}
 
     {% include "./components/footer.njk" %}
-    
+
     {% set js %}
 
     {%- if hasBlob %}
     {% include "./src/blob.js" %}
     {%- endif %}
-    
+
     {%- if isHero %}
     {% include "./src/silly.js" %}
     {%- endif %}
-    
+
     {%- if isCommissions %}
     {% include "./src/lazy.js" %}
     {% include "./src/offers.js" %}
     {% include "./src/scroll.js" %}
     {%- endif %}
-    
+
     {%- if isCharacters %}
     {% include "../../node_modules/jquery/dist/jquery.min.js" %}
     {% include "./src/characters.js" %}
@@ -116,11 +120,7 @@
 
     {% endset %}
 
-    <script 
-        {%- if isCharacters %}
-        type="module"
-        {%- endif %}
-        >
-        {{ js | jsmin | safe}}
+    <script {%- if isCharacters %} type="module" {%- endif %}>
+        {{js | jsmin | safe}}
     </script>
 </body>
