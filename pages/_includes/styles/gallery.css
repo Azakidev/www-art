@@ -93,7 +93,7 @@
             }
 
             & :first-child {
-                font-size: var(--text-medium);
+                font-size: var(--text-small);
                 text-wrap: nowrap;
                 position: relative;
                 z-index: 1;
@@ -112,7 +112,7 @@
             }
 
             & :last-child {
-                font-size: var(--text-medium);
+                font-size: var(--text-small);
                 position: relative;
                 z-index: 1;
                 user-select: none;
@@ -142,9 +142,9 @@
                 z-index: 0;
                 width: 105%;
                 transition: 200ms;
-                height: calc(var(--text-medium) * 2 + 10px);
-                mask: linear-gradient(0deg, #000 40%, rgba(0, 0, 0, 0.8) 80%, #0000 100%);
+                height: calc(var(--text-small) * 2 + 10px);
                 backdrop-filter: blur(var(--blur)) saturate(var(--saturation));
+                mask: linear-gradient(0deg, #000 40%, rgba(0, 0, 0, 0.8) 80%, #0000 100%);
             }
         }
 
@@ -217,7 +217,7 @@
 
 .overlay_buttons>a>i, #swap>i {
     color: var(--text-soft);
-    font-size: var(--text-medium);
+    font-size: var(--text-small);
 
     padding: 16px;
     transition-duration: 100ms;
@@ -255,12 +255,12 @@
 
 .title {
     left: 0;
-    font-size: calc(var(--text-medium) * 1.2);
+    font-size: calc(var(--text-small) * 1.2);
     view-transition-name: title;
 }
 .date {
     right: 0;
-    font-size: calc(var(--text-medium) * 0.8);
+    font-size: calc(var(--text-small) * 0.8);
     view-transition-name: date;
 }
 
