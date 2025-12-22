@@ -7,8 +7,8 @@
         padding-bottom: 1rem;
     }
 
-    section:is(:first-of-type) .text {
-        margin-top: calc(var(--margin) * 5) !important;
+    section .text {
+        margin-top: calc(var(--margin) * 3) !important;
     }
 
     h1 {
@@ -98,7 +98,7 @@
             text-align: center;
 
             color: var(--text-soft);
-            font-size: var(--text-medium);
+            font-size: calc(var(--text-medium) * 0.75);
             
             display: grid;
             place-content: center;

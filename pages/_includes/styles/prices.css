@@ -43,7 +43,7 @@
         }
 
         &:last-child {
-            height: calc(100% - var(--big-card-width));
+            height: auto !important;
             width: auto !important;
         }
     }
@@ -118,7 +118,9 @@
     margin: 0 calc(var(--margin));
     margin-bottom: calc(var(--margin) * 2);
 
-    &:hover>.row:not(:hover) {
+    gap: var(--margin);
+
+    &:hover>.hc:not(:hover) {
         height: calc(var(--small-card-height) - var(--small-card-height) / 7)
     }
 
@@ -128,12 +130,13 @@
         font-weight: 200;
         text-align: center;
 
-        margin-top: var(--margin);
-        margin-bottom: var(--margin);
+        margin: 0;
     }
 
     &>.hc {
         height: var(--small-card-height);
+        max-width: 1500px;
+        width: 100%;
 
         transition-duration: 0.2s;
         transition-delay: 0.1s;

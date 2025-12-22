@@ -3,10 +3,10 @@
   description: Reference sheets, starting at 40€
   price: 40€+
 
-- id: cels.png
-  name: Cel shaded
-  description: Nathaki painted in a cel shaded style
-  price: 40€
+- id: stickers.png
+  name: Stickers
+  description: A set of stickers
+  price: 25€ / 5
 
 - id: animloop.avif
   name: Short animation

@@ -5,12 +5,20 @@
         }
     }
 
+    #tos {
+        margin-top: 0 !important;
+    }
+
     .card {
         width: auto !important;
     }
 }
 
 @media only screen and (width < 1100px) and (width > 500px) {
+    #tos {
+        margin-top: 0 !important;
+    }
+
     .card {
         width: auto !important;
     }
@@ -130,12 +138,11 @@
 
         transition-property: scale, border-radius, box-shadow;
         transition-duration: 0.2s;
-
-        &:hover {
-            scale: 1.01;
-            border-radius: .5rem;
-            box-shadow: 0px 0px 20px var(--main-accent);
-        }
+    }
+    &#sheet>img:hover {
+        scale: 1.01;
+        border-radius: .5rem;
+        box-shadow: 0px 0px 20px var(--main-accent);
     }
 }
 
@@ -163,8 +170,8 @@
 
 #tos,
 #process {
-
     margin: var(--margin);
+    gap: var(--margin);
 
     & h2 {
         font-size: calc(var(--text-large) * .8);
@@ -172,8 +179,6 @@
         font-weight: 200;
         text-align: center;
 
-        margin: calc(var(--margin) * 2) 0;
-        margin-top: 0;
     }
 
     & h1 {

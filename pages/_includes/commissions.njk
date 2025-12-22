@@ -34,11 +34,11 @@ layout: ./main.njk
 
     {{ content | safe }}
 
-    <section class="vc" id="pcards">
+    <section class="vc ac" id="pcards">
         <h2>More examples!</h2>
 
         {% for price in prices %}
-        <div class="row hc reflow">
+        <div class="hc reflow">
             <!-- Image -->
             <div class="pcard" data-bgimage="{{ price.id }}" id="{{ price.id }}" tabindex="0"></div>
             <!-- Text -->

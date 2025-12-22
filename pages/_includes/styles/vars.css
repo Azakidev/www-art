@@ -1,7 +1,7 @@
 @media only screen and (width < 500px) {
     :root {
         --text-large: 36px;
-        --text-medium: 16px;
+        --text-medium: 28px;
         --text-small: 18px;
         --nav-safe: calc(var(--margin) * 5) !important;
     }
@@ -9,8 +9,8 @@
 
 @media only screen and (width < 800px) and (width > 500px) {
     :root {
-        --text-large: 42px;
-        --text-medium: 20px;
+        --text-large: 48px;
+        --text-medium: 36px;
         --text-small: 18px;
         --nav-safe: calc(var(--margin) * 5) !important;
     }
@@ -18,9 +18,9 @@
 
 @media only screen and (width > 800px) {
     :root {
-        --text-large: 48px;
-        --text-medium: 26px;
-        --text-small: 24px;
+        --text-large: 64px;
+        --text-medium: 42px;
+        --text-small: 20px;
     }
 }
 
