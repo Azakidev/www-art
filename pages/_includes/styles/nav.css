@@ -1,14 +1,14 @@
 @media only screen and (width < 680px) {
     :root {
-        --nav-text-title: clamp(14px, 3vw, 1.5rem) !important;
-        --nav-text-link: clamp(12px, 3vw, 1rem) !important;
+        --nav-text-title: 18px !important;
+        --nav-text-link: 16px !important;
         --logo-size: 50px !important;
     }
 
     nav {
         border-radius: var(--margin) !important;
         margin: calc(var(--margin) / 1.5) calc(var(--margin) * 1.25);
-        padding: .5rem 0;
+        padding: .5rem 0.6rem;
         justify-content: center !important;
 
         & :last-child {
@@ -19,10 +19,10 @@
 
 }
 
-@media only screen and (width < 940px) and (width >= 680px) {
+@media only screen and (width < 940px) and (width >=680px) {
     :root {
-        --nav-text-title: clamp(14px, 3vw, 1.5rem) !important;
-        --nav-text-link: clamp(12px, 3vw, 1rem) !important;
+        --nav-text-title: 18px !important;
+        --nav-text-link: 16px !important;
         --logo-size: 64px !important;
         --nav-padding: 23px;
     }
@@ -36,7 +36,7 @@
     }
 }
 
-@media only screen and (width < 1260px) and (width >= 940px) {
+@media only screen and (width < 1260px) and (width >=940px) {
     nav {
         margin: calc(var(--margin) / 1.5) var(--margin);
 
@@ -46,16 +46,10 @@
     }
 }
 
-@media only screen and (width >= 1260px) {
-    :root {
-        --nav-text-title: clamp(20px, 6vw, 2.5rem);
-        --nav-text-link: clamp(20px, 6vw, 2rem);
-        --nav-padding: 12px;
-    }
+@media only screen and (width >=1260px) {
 
     nav {
         margin: calc(var(--margin) / 1.5) calc(var(--margin) * 4);
-        /* height: calc(var(--margin) + 48px); */
 
         & :last-child {
             gap: calc(var(--margin) / 1.5);
@@ -68,6 +62,12 @@
     top: 0;
     width: 100vw;
     z-index: 99;
+}
+
+:root {
+    --nav-text-title: 32px;
+    --nav-text-link: 24px;
+    --nav-padding: 12px;
 }
 
 nav {

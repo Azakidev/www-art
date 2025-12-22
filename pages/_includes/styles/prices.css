@@ -135,7 +135,7 @@
 
     &>.hc {
         height: var(--small-card-height);
-        max-width: 1700px;
+        max-width: 1500px;
         width: 100%;
 
         transition-duration: 0.2s;
