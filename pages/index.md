@@ -6,13 +6,13 @@ keywords: furry art, fat fur art, dawlf
 thumbnail: hero
 ---
 
-# Projects
+## Projects
 
 <div class="hc fw jc">
 
 <div class="card vc">
 
-# The dolfare
+### The dolfare
 
 The dolfare, or dawlfs.
 
@@ -24,7 +24,7 @@ Free to make and open source, they're open for collaboration, ideas, and partici
 
 <div class="card vc">
 
-# NS0X
+### NS0X
 
 It's the story for one of my characters, Nasu.
 
@@ -36,7 +36,7 @@ NS0X is the story of his creation and the people who made his existence possible
 
 <div class="card vc">
 
-# Tales of Laraybis
+### Tales of Laraybis
 
 The collection of my character's stories.
 
@@ -48,7 +48,7 @@ It's certainly one of my most incomplete projects, as it is also the largest as 
 
 <div class="card vc">
 
-# Heart of Sea
+### Heart of Sea
 
 A short story in the world of Laraybis.
 
@@ -62,7 +62,7 @@ Despite happening long after the main story, it exposes some world-building and 
 
 <div class="card vc">
 
-# This website
+### This website
 
 The hub for all my work.
 
@@ -74,7 +74,7 @@ My plans for this site is to continue expanding it with more information about w
 
 <div class="card vc">
 
-# Plantilla
+### Plantilla
 
 A tool for cropping and applying templates to images.
 

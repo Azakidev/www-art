@@ -82,6 +82,18 @@ h1 {
     margin: 0;
 }
 
+h2 {
+    font-size: var(--text-large);
+    font-weight: 1000;
+    margin: 0;
+}
+
+h3 {
+    font-size: var(--text-medium);
+    font-weight: 1000;
+    margin: 0;
+}
+
 p {
     font-size: var(--text-small);
     font-weight: 300;
@@ -169,7 +181,7 @@ img {
 }
 
 .button {
-    font-size: var(--text-medium);
+    font-size: var(--text-small);
     font-weight: 1000;
 
     text-wrap-mode: nowrap;
@@ -187,23 +199,10 @@ img {
         font-style: italic;
 
         background: var(--main-accent);
-        box-shadow: 0 0 20px var(--main-glow);
+        box-shadow: 0px 0px 20px var(--main-glow);
     }
 
     &:active {
         padding: calc(var(--margin) / 1.8);
     }
-}
-
-footer {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    z-index: 999;
-    opacity: 0.5;
-    font-family: 'Nunito', sans-serif;
-    font-size: 1vmin;
-    user-select: none;
-    -webkit-user-select: none;
-    margin: 0.5vmin;
 }

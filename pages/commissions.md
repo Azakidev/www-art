@@ -9,7 +9,7 @@ isCommissions: true
 hasBlob: true
 ---
 
-<section id="tos">
+<section id="tos" class="vc">
 
 ## Terms of Service
 
@@ -54,7 +54,7 @@ Do **not** crop out or otherwise remove my signature as you'd be banned from eve
 
 </section>
 
-<section id="process">
+<section id="process" class="vc">
  
 ## What's the process?
 

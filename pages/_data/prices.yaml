@@ -13,6 +13,11 @@
   description: Bold, expressive, textured
   price: 50
 
+- id: cels
+  name: Cel shaded
+  description: Cartoony, vibrant, energetic
+  price: 40
+
 - id: cl
   name: Colored lineart
   description: Flat, legible, simple
