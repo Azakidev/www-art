@@ -2,10 +2,10 @@
     "type": "module",
     "dependencies": {
         "@11ty/eleventy": "^3.1.2",
+        "date-fns": "^4.1.0",
         "jquery": "^3.7.1",
         "terser": "^5.44.1",
-        "yaml": "^2.8.1",
-        "date-fns": "^4.1.0"
+        "yaml": "^2.8.1"
     },
     "scripts": {
         "thumbs": "bash media/gallery/generate.sh",
