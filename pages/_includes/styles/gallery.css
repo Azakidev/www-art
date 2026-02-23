@@ -21,9 +21,6 @@
         top: 0 !important;
         bottom: auto !important;
     }
-    #swap {
-        margin: calc(var(--margin) / 2) !important;
-    }
 
     ::view-transition-old(title) { animation-name: slide-out-top !important; }
     ::view-transition-new(title) { animation-name:  slide-in-top !important; }
@@ -215,30 +212,6 @@
 
 }
 
-.overlay_buttons>a>i, #swap>i {
-    color: var(--text-soft);
-    font-size: var(--text-small);
-
-    padding: 16px;
-    transition-duration: 100ms;
-
-    border-radius: 6rem;
-    box-shadow: 0 3px rgb(from black r g b / 0.5);
-    background-color: rgb(from var(--button) r g b / 0.8);
-    backdrop-filter: blur(12px);
-}
-
-
-.overlay_buttons>a:hover>i, #swap:hover>i {
-    box-shadow: 0 6px rgb(from black r g b / 0.5);
-    translate: 0 -3px;
-}
-
-.overlay_buttons>a:active>i, #swap:active>i {
-    box-shadow: none;
-    translate: 0 3px;
-}
-
 .title, .date {
     position: absolute;
     bottom: 0;
@@ -264,12 +237,8 @@
     view-transition-name: date;
 }
 
-#swap {
-    position: fixed;
+#fabCont {
     z-index: 9;
-    margin: var(--margin);
-    right: 0;
-    bottom: 0;
 }
 
 #shareButton:active {

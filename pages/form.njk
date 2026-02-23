@@ -47,7 +47,10 @@ isCommissions: false
                     </div>
                     <label for="contentDescription">Description:</label>
                     <textarea name="contentDescription" rows="7" placeholder="What do you want in the commission?" required></textarea>
-                    <label for="bgComplexity">How complex is the background?</label>
+                    <div class="hc ac jsb noeq">
+                        <label for="bgComplexity">How complex is the background?</label>
+                        <label for="bgComplexity" id="bgLevel">Trivially easy</label>
+                    </div>
                     <div class="hc ac noeq">
                         <input type="range" id="bgComplexity" name="bgComplexity" min="0" max="20" step="5" value="0">
                         <label for="bgComplexity" id="complexityLevel"></label>

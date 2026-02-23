@@ -14,6 +14,7 @@ const bgComplexity = document.getElementById("bgComplexity")
 
 const charText = document.getElementById("charText")
 const complexityLevel = document.getElementById("complexityLevel")
+const bgLevel = document.getElementById("bgLevel")
 const subtotal = document.getElementById("subtotal")
 
 var basePrice
@@ -149,6 +150,29 @@ function emailCommission(data) {
     )
 }
 
+function bgLabelChange() {
+    switch (bgComplexity.value) {
+        case "0":
+            bgLevel.textContent = "Trivially easy"
+            break;
+        case "5":
+            bgLevel.textContent = "Basic and simple"
+            break;
+        case "10":
+            bgLevel.textContent = "A little busy"
+            break;
+        case "15":
+            bgLevel.textContent = "Fairly busy"
+            break;
+        case "20":
+            bgLevel.textContent = "Busy and complex"
+            break;
+        default:
+            bgLevel.textContent = "What"
+            break;
+    }
+}
+
 form.addEventListener("submit", handleSubmit)
 
 selector.addEventListener("change", () => {
@@ -165,6 +189,7 @@ charCount.addEventListener("change", () => {
 })
 
 bgComplexity.addEventListener("change", () => {
+    bgLabelChange()
     complexityLevel.innerText = "+" + bgComplexity.value + "%"
     updatePrice()
 })
@@ -174,3 +199,4 @@ updatePrice()
 complexityLevel.innerText = "+" + bgComplexity.value + "%"
 contactSelector.value = ""
 handleContactChange()
+bgLabelChange()

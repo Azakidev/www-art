@@ -8,7 +8,7 @@
     }
 
     section .text {
-        margin-top: calc(var(--margin) * 3) !important;
+        margin-top: var(--nav-safe);
     }
 
     h1 {

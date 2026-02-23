@@ -1,0 +1,21 @@
+<section class="gc" id="articleList">
+    {%- for article in collections.musings | reverse -%}
+    <div class="card vc">
+        <a href="{{ article.fileSlug | slugify }}">
+
+            {%- if article.data.thumbnail != null %}
+            <img src="/media/thumbs/musings/{{ article.data.thumbnail }}.png" loading="lazy" alt="">
+            {%- endif %}
+            
+            <div class="vc">
+                <h3>{{ article.data.title }}</h3>
+                <p>
+                {{ article.data.description }}
+                {{ article.page.excerpt }}
+                </p>
+                <p class="subtext">{{ article.date | postDate }}</p>
+            </div>
+        </a>
+    </div>
+    {%- endfor -%}
+</section>

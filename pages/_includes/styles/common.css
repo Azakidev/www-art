@@ -136,6 +136,14 @@ a {
         align-items: center;
     }
 
+    &.as {
+        align-items: start;
+    }
+
+    &.ae {
+        align-items: end;
+    }
+
     &.fw {
         flex-wrap: wrap;
     }
@@ -164,12 +172,14 @@ img {
 
 .card {
     text-align: center;
-    border: 2px solid var(--container-border);
+
+    background: rgba(from var(--container-bg) r g b / 0.4);
+    border-bottom: 2px solid rgb(from white r g b / 0.2);
+
     border-radius: 2rem;
 
-    backdrop-filter: blur(70px);
+    backdrop-filter: blur(40px);
 
-    width: 45%;
     max-width: 80ch;
     padding: var(--margin);
 

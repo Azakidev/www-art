@@ -1,0 +1,35 @@
+<section 
+    class="hc jsb reflow"
+    id="articleNavigator" 
+    style="
+        {% if not previousPost %}
+        gap: 0 !important;
+        {% endif %}
+    ">
+    <div class="vc as" id="previousPost">
+        {% if previousPost %}
+        <h2>Previous</h2>
+        <a class="vc as" href="{{ previousPost.url }}">
+            <div class="card vc">
+                <h3>{{ previousPost.data.title }}</h3>
+                <p>{{ previousPost.page.excerpt }}</p>
+                <p class="subtext">{{ previousPost.date | postDate }}</p>
+                <i class="fa-solid fa-arrow-left"></i>
+            </div>
+        </a>
+        {% endif %}
+    </div>
+    <div class="vc ae" id="nextPost">
+        {% if nextPost %}
+        <h2 style="align-self: end;">Next</h2>
+        <a class="vc ae" href="{{ nextPost.url }}">
+            <div class="card vc">
+                <h3>{{ nextPost.data.title }}</h3>
+                <p>{{ nextPost.page.excerpt }}</p>
+                <p class="subtext">{{ nextPost.date | postDate }}</p>
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
+        </a>
+        {% endif %}
+    </div>
+</section>

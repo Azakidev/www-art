@@ -7,7 +7,7 @@
 
     nav {
         border-radius: var(--margin) !important;
-        margin: calc(var(--margin) / 1.5) calc(var(--margin) * 1.25);
+        margin: calc(var(--margin) / 1.5) calc(var(--margin) / 2);
         padding: .5rem 0.6rem;
         justify-content: center !important;
 
@@ -16,7 +16,6 @@
             margin-right: 0 !important;
         }
     }
-
 }
 
 @media only screen and (width < 940px) and (width >=680px) {
@@ -71,12 +70,12 @@
 }
 
 nav {
-    --blurSize: 30px;
-    border: solid 2px rgb(from var(--button) r g b / 0.6);
+    --blurSize: 24px;
+    border-bottom: solid 2px rgb(from var(--button) r g b / 0.6);
     border-radius: 6rem;
     background-color: rgb(from var(--container-bg) r g b / 0.5);
 
-    backdrop-filter: blur(var(--blurSize));
+    backdrop-filter: blur(var(--blurSize)) saturate(1.8);
     -webkit-backdrop-filter: blur(var(--blurSize));
 
     transition-duration: 0.2s;

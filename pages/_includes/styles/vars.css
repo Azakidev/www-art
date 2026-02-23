@@ -2,7 +2,7 @@
     :root {
         --text-large: 36px;
         --text-medium: 28px;
-        --text-small: 18px;
+        --text-small: 16px;
         --nav-safe: calc(var(--margin) * 5) !important;
     }
 }
@@ -11,7 +11,7 @@
     :root {
         --text-large: 48px;
         --text-medium: 36px;
-        --text-small: 18px;
+        --text-small: 16px;
         --nav-safe: calc(var(--margin) * 5) !important;
     }
 }
@@ -20,7 +20,7 @@
     :root {
         --text-large: 64px;
         --text-medium: 42px;
-        --text-small: 20px;
+        --text-small: 18px;
     }
 }
 

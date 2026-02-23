@@ -6,7 +6,7 @@
     <meta name="darkreader-lock">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    {% if isHero or isCommissions or isCharacters %}
+    {% if isHero or isCommissions or isCharacters or isMusing %}
     {% include "./components/opengraph.njk" %}
     {% endif %}
 
@@ -15,7 +15,12 @@
     {% endif %}
 
     <title>FatDawlf - {{ title }}</title>
+    {% if description %}
     <meta name="description" content="{{ description }}">
+    {% else %}
+    <meta name="description" content="{{ page.excerpt }}">
+    {% endif %}
+
     {% if keywords != "" %}
     <meta name="keywords" content="{{ keywords }}">
     {% endif %}
@@ -61,6 +66,7 @@
 
     {%- if isGallery %}
     {% include "./styles/gallery.css" %}
+    {% include "./styles/fab.css" %}
     {%- endif %}
 
     {%- if isForm %}
@@ -69,6 +75,11 @@
 
     {%- if not hideNav %}
     {% include "./styles/nav.css" %}
+    {%- endif %}
+
+    {%- if isMusing %}
+    {% include "./styles/musings.css" %}
+    {% include "./styles/fab.css" %}
     {%- endif %}
 
     {% endset %}
@@ -109,11 +120,17 @@
     {%- endif %}
 
     {%- if isGallery %}
+    {% include "./src/fab.js" %}
     {% include "./src/gallery.js" %}
     {%- endif %}
 
     {%- if isForm %}
     {% include "./src/form.js" %}
+    {%- endif %}
+    
+    {%- if isMusing %}
+    {% include "./src/fab.js" %}
+    {% include "./src/rss.js" %}
     {%- endif %}
 
     {% endset %}

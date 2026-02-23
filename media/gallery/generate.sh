@@ -11,7 +11,7 @@ OUTFORMAT="png"
 rm $IMAGES_JSON
 
 if [ "$1" == "-r" ] || [ "$1" == "--regenerate" ]; then
-  rm -r $THUMBS_DIR
+  rm -r "$(dirname "$0")/$THUMBS_DIR"
 fi
 
 echo "Generating image thumbnails and data"
@@ -20,7 +20,7 @@ touch $IMAGES_JSON
 echo "{ \"files\": [" >> $IMAGES_JSON
 
 # Create thumbs directory if it doesn't exist
-mkdir -p $THUMBS_DIR
+mkdir -p "$(dirname "$0")/$THUMBS_DIR"
 
 # Loop through all image files in fulres directory
 for FILE in $(dirname "$0")/$FULRES_DIR/*.png; do

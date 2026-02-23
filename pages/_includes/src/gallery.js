@@ -1,6 +1,7 @@
 const gallery = document.getElementById('gallery');
 const nav = document.querySelector('nav');
 const swap = document.getElementById('swap');
+const fabPopup = document.getElementById('fabPopup');
 
 const outformat = "png";
 const base_url = "https://www.furaffinity.net/view/"
@@ -141,6 +142,7 @@ function addButtons(file) {
 
     // Open button
     const open = document.createElement('a');
+    open.classList.add("fab")
     open.href = base_url + file.fa_id;
     const open_icon = document.createElement('i');
     open_icon.classList.add('fa-solid');
@@ -148,6 +150,7 @@ function addButtons(file) {
     open.appendChild(open_icon);
     // Share button
     const share = document.createElement('a');
+    share.classList.add("fab")
     share.addEventListener("click", () => {
         navigator.clipboard.writeText(base_url + file.fa_id);
     })
@@ -163,10 +166,14 @@ function addButtons(file) {
 }
 
 swap.addEventListener('click', async (e) => {
+    resetAnimation(fabPopup)
+
     if (e.target.title === 'Newest first') {
         e.target.title = 'Oldest first';
+        fabPopup.textContent = "Newest first"
     } else {
         e.target.title = 'Newest first';
+        fabPopup.textContent = "Oldest first"
     }
 
     if ((!document.startViewTransition) || (window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
@@ -189,5 +196,6 @@ swap.addEventListener('click', async (e) => {
         for (var i = 0; i < gallery.children.length; i++) {
             gallery.children[i].style.viewTransitionName = '';
         }
+        startAnimation(fabPopup)
     }
 });

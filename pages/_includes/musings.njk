@@ -1,0 +1,38 @@
+---
+layout: ./main.njk
+
+isMusing: true
+---
+
+{% set previousPost = collections.musings | getPreviousCollectionItem %}
+{% set nextPost = collections.musings | getNextCollectionItem %}
+
+<div class="barOffset"></div>
+
+<div class="vc ac">
+    <section class="vc" id="content">
+        <h1>{{ title }}</h1>
+        <p class="subtext">Written {{ page.date | postDate }}</p>
+
+        {%- if thumbnail != null %}
+        <img id="thumb" src="/media/thumbs/musings/{{ thumbnail }}.png" loading="lazy" alt="">
+        {%- endif %}
+
+        {{ content | safe }}
+    </section>
+
+    {% if isRoot %}
+    <hr>
+    {% include "./components/articleList.njk" %}
+    {% elif nextPost or previousPost %}
+    <hr>
+    {% include "./components/articleNavigator.njk" %}
+    {% endif %}
+</div>
+
+<div class="vc ae" id="fabCont">
+    <span id="fabPopup">Copied feed link!</span>
+    <a class="fab" id="rssButton" aria-role="button" title="RSS/Atom Feed">
+        <i class="fa-solid fa-rss"></i>
+    </a>
+</div>
