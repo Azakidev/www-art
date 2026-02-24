@@ -12,7 +12,9 @@ isMusing: true
 <div class="vc ac">
     <section class="vc" id="content">
         <h1>{{ title }}</h1>
+        {% if not isRoot %}
         <p class="subtext">Written {{ page.date | postDate }}</p>
+        {% endif %}
 
         {%- if thumbnail != null %}
         <img id="thumb" src="/media/thumbs/musings/{{ thumbnail }}.png" loading="lazy" alt="">
