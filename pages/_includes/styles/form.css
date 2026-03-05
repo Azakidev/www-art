@@ -189,13 +189,28 @@ form {
 
     & input {
         transition-property: border, height, padding, opacity, filter;
-        &.hidden {
-            height: 0;
-            padding: 0 !important;
-            border: none;
-            opacity: 0;
-            filter: blur(5px);
+
+        &[type="checkbox"] {
+            position: absolute;
+            right: 0;
+
+            width: calc(var(--text-small) * 1.2);
+            height: calc(var(--text-small) * 1.2);
         }
+    }
+
+    & .prompt {
+        position: relative;
+        margin-block: calc(var(--margin) / 6);
+    }
+
+    & .hidden {
+        height: 0;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none;
+        opacity: 0;
+        filter: blur(5px);
     }
 
     & select {
@@ -270,6 +285,82 @@ form {
     & #complexityLevel {
         min-width: auto !important;
     }
+}
+
+#commissionTypeContainer {
+    position: relative;
+
+    background-color: rgb(from var(--container-bg) r g b / 0.8);
+
+    padding-block: calc(var(--margin) / 3);
+    padding-inline: calc(var(--margin) / 4);
+    margin-block: calc(var(--margin) / 6);
+    border-radius: 6rem;
+
+    & input {
+        display: none;
+
+        &#Commission:checked ~ #pill {
+            left: 0%;
+            translate: calc(var(--margin) / 8);
+            background-color: var(--main-accent);
+        }
+
+        &#LABS:checked ~ #pill {
+            left: 33%;
+            background-color: var(--labs-accent);
+        }
+
+        &#YCH:checked ~ #pill {
+            left: 66%;
+            translate: 0;
+            background-color: var(--ych-accent);
+            opacity: 0.6;
+        }
+    }
+
+    & label {
+        z-index: 1;
+
+        user-select: none;
+        -webkit-user-select: none;
+
+        text-align: center;
+        transition-property: letter-spacing;
+        transition-duration: 0.2s;
+        transition-timing-function: var(--nav-timing);
+
+        &:hover {
+            box-shadow: none;
+            letter-spacing: 0.5px;
+        }
+
+        &:active {
+            letter-spacing: -0.5px;
+        }
+    }
+
+    & #pill {
+        position: absolute;
+        z-index: 0;
+
+        left: 0;
+        translate: calc(var(--margin) / 8);
+
+        transition-property: left, translate, background-color, opacity;
+        transition-timing-function: var(--slider-timing);
+        transition-duration: 0.25s;
+
+        opacity: 0.3;
+
+        border-radius: 6rem;
+        height: var(--margin);
+        width: 33%;
+    }
+}
+
+.formSection.hidden {
+    display: none;
 }
 
 #subtotal {

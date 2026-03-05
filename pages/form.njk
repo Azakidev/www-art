@@ -15,46 +15,15 @@ isCommissions: false
             <h1>{{ title }}</h1>
             <form id="form">
                 <div class="vc">
-                    <div class="hc ac jsb">
-                        <label for="email">Payment email:</label>
-                        <input type="email" name="email" placeholder="Your Paypal email" value="" required>
-                    </div>
-                    <div class="vc ng">
-                        <div class="hc ac jsb">
-                            <label for="contactMethod">Contact method:</label>
-                            <select id="contactSelector" name="contactMethod" value="">
-                                <option value="">Same as payment email</option>
-                                <option value="Discord">Discord</option>
-                                <option value="Bluesky">Bluesky</option>
-                                <option value="Telegram">Telegram</option>
-                                <option value="Other email">Other email address</option>
-                            </select>
-                        </div>
-                        <input class="hidden" id="contact" type="text" name="contact" value="">
-                    </div>
-                    <div class="hc ac jsb">
-                        <label for="style">Style:</label>
-                        <select id="selector" name="style" value="" required>
-                            <option value="">Pick a style</option>
-                            {% for tier in prices %}
-                            <option value="{{tier.id}}">{{tier.name}}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <div class="hc ac jsb">
-                        <label for="charCount" id="charText"> Characters:</label>
-                        <input type="number" name="charCount" id="charCount" value="1" min="1" max="10" required>
-                    </div>
-                    <label for="contentDescription">Description:</label>
-                    <textarea name="contentDescription" rows="7" placeholder="What do you want in the commission?" required></textarea>
-                    <div class="hc ac jsb noeq">
-                        <label for="bgComplexity">How complex is the background?</label>
-                        <label for="bgComplexity" id="bgLevel">Trivially easy</label>
-                    </div>
-                    <div class="hc ac noeq">
-                        <input type="range" id="bgComplexity" name="bgComplexity" min="0" max="20" step="5" value="0">
-                        <label for="bgComplexity" id="complexityLevel"></label>
-                    </div>
+                    <!-- Contact information -->
+                    {% include "./_includes/components/form/infoForm.njk" %}
+                    <!-- Commission type selector -->
+                    {% include "./_includes/components/form/typePicker.njk" %}
+                    <!-- Commission forms -->
+                    {% include "./_includes/components/form/commForm.njk" %}
+                    {% include "./_includes/components/form/labsForm.njk" %}
+                    {% include "./_includes/components/form/ychForm.njk" %}
+                    <!-- Confirm button -->
                     <div class="hc ac jc reflow" id="confirm">
                         <p id="subtotal"></p>
                         <button type="submit" value="Submit">Submit!</button>
@@ -66,6 +35,12 @@ isCommissions: false
         {% for tier in prices %}
         <img src="/media/prices/{{tier.id}}.png" alt="{{tier.name}}" id="{{tier.id}}" loading="lazy">
         {% endfor %}
+        {% for tier in labs %}
+        <img src="/media/labs/{{tier.id}}" id="{{tier.id}}" alt="{{tier.price}}" loading="lazy">
+        {% endfor %}
+        {% for tier in ych %}
+        <img src="/media/ych/{{tier.id}}.png" id="{{tier.id}}" alt="{{tier.price}}" loading="lazy">
+        {% endfor %}
         </div>
     </div>
 </section>
@@ -73,5 +48,11 @@ isCommissions: false
 <div class="imgSwap" id="backdrop">
     {% for tier in prices %}
     <img src="/media/prices/{{tier.id}}.png" id="{{tier.id}}" alt="{{tier.price}}" loading="lazy">
+    {% endfor %}
+    {% for tier in labs %}
+    <img src="/media/labs/{{tier.id}}" id="{{tier.id}}" alt="{{tier.price}}" loading="lazy">
+    {% endfor %}
+    {% for tier in ych %}
+    <img src="/media/ych/{{tier.id}}.png" id="{{tier.id}}" data-type="{{tier.type}}" alt="{{tier.price}}" loading="lazy">
     {% endfor %}
 </div>

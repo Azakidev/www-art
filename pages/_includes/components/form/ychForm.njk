@@ -1,0 +1,31 @@
+<div class="vc formSection" id="ychForm">
+    
+    <div class="hc ac jsb">
+        <label for="ychPicker">YCH:</label>
+        <select id="ychPicker" name="ychPicker" value="" required>
+            <option value="">Pick a YCH</option>
+            {% for tier in ych %}
+            <option value="{{tier.id}}">{{tier.name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="hc noeq jsb prompt" id="litePrompt">
+        <label for="liteFull" style="flex-grow: 1;">Include both character slots (A+B)</label>
+        <input type="checkbox" name="liteFull" id="liteFull">
+    </div>
+
+    <div class="vc" id="choosePrompt">
+        <div class="hc noeq jsb prompt">
+            <label for="chooseA" style="flex-grow: 1;">Include A slot</label>
+            <input type="checkbox" name="chooseA" id="chooseA" checked>
+        </div>
+        
+        <div class="hc noeq jsb prompt">
+            <label for="chooseB" style="flex-grow: 1;">Include B slot</label>
+            <input type="checkbox" name="chooseB" id="chooseB">
+        </div>
+        
+    </div>
+
+</div>

@@ -1,0 +1,13 @@
+<div class="vc formSection" id="labsForm">
+    
+    <div class="hc ac jsb">
+        <label for="labsPicker">Item:</label>
+        <select id="labsPicker" name="labsPicker" value="" required>
+            <option value="">Pick an item</option>
+            {% for tier in labs %}
+            <option value="{{tier.id}}">{{tier.name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+</div>
