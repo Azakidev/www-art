@@ -1,13 +1,34 @@
 <div class="vc formSection" id="labsForm">
-    
+
     <div class="hc ac jsb">
         <label for="labsPicker">Item:</label>
-        <select id="labsPicker" name="labsPicker" value="" required>
+        <select id="labsPicker" name="labsPicker" value="">
             <option value="">Pick an item</option>
             {% for tier in labs %}
             <option value="{{tier.id}}">{{tier.name}}</option>
             {% endfor %}
         </select>
+    </div>
+
+    <div class="vc prompt" id="refsPrompt">
+        <label for="refsDescription">Description:</label>
+        <textarea id="refsDescription" name="refsDescription" rows="7"
+            placeholder="Describe the character, provide references, or indicate modifications to a previous ref sheet."></textarea>
+    </div>
+
+    <div class="vc prompt" id="stickerPrompt">
+        <label>What will each sticker contain?</label>
+        <input placeholder="Sticker 1" id="sticker1" name="sticker1" type="text">
+        <input placeholder="Sticker 2" id="sticker2" name="sticker2" type="text">
+        <input placeholder="Sticker 3" id="sticker3" name="sticker3" type="text">
+        <input placeholder="Sticker 4" id="sticker4" name="sticker4" type="text">
+        <input placeholder="Sticker 5" id="sticker5" name="sticker5" type="text">
+    </div>
+
+    <div class="vc prompt" id="animPrompt">
+        <label for="animDescription">Description:</label>
+        <textarea id="animDescription" name="animDescription" rows="7"
+            placeholder="What do you want in the animation?"></textarea>
     </div>
 
 </div>

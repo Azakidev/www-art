@@ -2,7 +2,7 @@
 
     <div class="hc ac jsb">
         <label for="styleSelector">Style:</label>
-        <select id="styleSelector" name="styleSelector" value="" required>
+        <select id="styleSelector" name="styleSelector" value="">
             <option value="">Pick a style</option>
             {% for tier in prices %}
             <option value="{{tier.id}}">{{tier.name}}</option>
@@ -12,16 +12,18 @@
 
     <div class="hc ac jsb">
         <label for="charCount" id="charText"> Characters:</label>
-        <input type="number" name="charCount" id="charCount" value="1" min="1" max="10" required>
+        <input type="number" name="charCount" id="charCount" value="1" min="1" max="10">
     </div>
-    
+
     <label for="contentDescription">Description:</label>
-    <textarea id="contentDescription" name="contentDescription" rows="7" placeholder="What do you want in the commission?" required></textarea>
+    <textarea id="contentDescription" name="contentDescription" rows="7"
+        placeholder="What do you want in the commission?"></textarea>
+
     <div class="hc ac jsb noeq">
         <label for="bgComplexity">How complex is the background?</label>
         <label for="bgComplexity" id="bgLevel">Trivially easy</label>
     </div>
-    
+
     <div class="hc ac noeq">
         <input type="range" id="bgComplexity" name="bgComplexity" min="0" max="20" step="5" value="0">
         <label for="bgComplexity" id="complexityLevel"></label>
