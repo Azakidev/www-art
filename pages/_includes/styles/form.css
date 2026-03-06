@@ -202,6 +202,10 @@ form {
     & .prompt {
         position: relative;
         margin-block: calc(var(--margin) / 6);
+
+        &.hidden {
+            display: none;
+        }
     }
 
     & .hidden {

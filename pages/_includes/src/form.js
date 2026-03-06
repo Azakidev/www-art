@@ -22,6 +22,18 @@ const complexityLevel = document.getElementById("complexityLevel")
 const bgLevel = document.getElementById("bgLevel")
 // LabsForm
 const labsPicker = document.getElementById("labsPicker")
+// Prompts
+const refsPrompt = document.getElementById("refsPrompt")
+const stickerPrompt = document.getElementById("stickerPrompt")
+const animPrompt = document.getElementById("animPrompt")
+// Inputs
+const refsDescription = document.getElementById("refsDescription")
+const animDescription = document.getElementById("animDescription")
+const sticker1 = document.getElementById("sticker1")
+const sticker2 = document.getElementById("sticker2")
+const sticker3 = document.getElementById("sticker3")
+const sticker4 = document.getElementById("sticker4")
+const sticker5 = document.getElementById("sticker5")
 // YCHForm
 const ychPicker = document.getElementById("ychPicker")
 // Slot prompts
@@ -43,6 +55,7 @@ var finalPrice
 
 var rawPrice = ""
 var ychType
+var labsType
 
 function handleContactChange() {
     if (contactSelector.value != "") {
@@ -64,15 +77,38 @@ function handleContactChange() {
     }
 }
 
-function hideSections() {
+function swapSections() {
     Array.from(formSections).forEach(section => {
-        if (type.toLowerCase() + "Form" == section.id ) {
+        if (type.toLowerCase() + "Form" == section.id) {
             section.classList.remove("hidden")
         } else {
             section.classList.add("hidden")
         }
     })
 
+    switch (type) {
+        case "Commission":
+            swapStyle(styleSelector.value)
+            updateCommissionPrice()
+            break;
+
+        case "LABS":
+            swapStyle(labsPicker.value)
+            updateLabsPrice()
+            break;
+
+        case "YCH":
+            swapStyle(ychPicker.value)
+            updateYchPrice()
+            break;
+
+        default:
+            swapStyle("")
+            break;
+    }
+}
+
+function updateRequired() {
     // Comm required fields
     styleSelector.required = false
     contentDescription.required = false
@@ -87,24 +123,49 @@ function hideSections() {
             styleSelector.required = true
             contentDescription.required = true
             charCount.required = true
-            swapStyle(styleSelector.value)
-            updateCommissionPrice()
             break;
 
         case "LABS":
             labsPicker.required = true
-            swapStyle(labsPicker.value)
-            updateLabsPrice()
+
+            if (labsPicker.value.split(".")[0] == "refs") {
+                refsPrompt.classList.remove("hidden")
+                refsDescription.required = true
+            } else {
+                refsPrompt.classList.add("hidden")
+                refsDescription.required = false
+            }
+
+            if (labsPicker.value.split(".")[0] == "stickers") {
+                stickerPrompt.classList.remove("hidden")
+                sticker1.required = true
+                sticker2.required = true
+                sticker3.required = true
+                sticker4.required = true
+                sticker5.required = true
+            } else {
+                stickerPrompt.classList.add("hidden")
+                sticker1.required = false
+                sticker2.required = false
+                sticker3.required = false
+                sticker4.required = false
+                sticker5.required = false
+            }
+
+            if (labsPicker.value.split(".")[0] == "animloop") {
+                animPrompt.classList.remove("hidden")
+                animDescription.required = true
+            } else {
+                animPrompt.classList.add("hidden")
+                animDescription.required = false
+            }
             break;
 
         case "YCH":
             ychPicker.required = true
-            swapStyle(ychPicker.value)
-            updateYchPrice()
             break;
-    
+
         default:
-            swapStyle("")
             break;
     }
 }
@@ -113,6 +174,8 @@ function swapStyle(style) {
     basePrice = 0
     rawPrice = " - €"
     ychType = ""
+
+    updateRequired()
 
     Array.from(backdrop.children).forEach(element => {
         element.classList.remove("visible");
@@ -160,7 +223,19 @@ function updateCommissionPrice() {
 }
 
 function updateLabsPrice() {
-    subtotal.textContent = "Cost estimate: " + rawPrice
+    var price
+    labsType = labsPicker.value.split(".")[0]
+
+    switch (labsType) {
+        case "stickers":
+            price = rawPrice.split(" ")[0]
+            break;
+
+        default:
+            price = rawPrice
+            break;
+    }
+    subtotal.textContent = "Cost estimate: " + price
 }
 
 function updateYchPrice() {
@@ -225,19 +300,44 @@ function handleSubmit(event) {
         }
     }
 
+    var detail = ""
+    switch (labsType) {
+        case "refs":
+            detail = data.get("refsDescription")
+            break;
+
+        case "stickers":
+            detail =
+                "1. " + data.get("sticker1") + "\n" +
+                "2. " + data.get("sticker2") + "\n" +
+                "3. " + data.get("sticker3") + "\n" +
+                "4. " + data.get("sticker4") + "\n" +
+                "5. " + data.get("sticker5")
+            break;
+
+        case "animloop":
+            detail = data.get("animDescription")
+            break;
+
+        default:
+            break;
+    }
+
     const labsDetail = {
         cost: {
             total: rawPrice
         },
         details: {
             item: data.get("labsPicker"),
+            type: labsType,
+            detail: detail
         }
     }
 
-    var slots
+    var slots = ""
     switch (ychType) {
         case "single":
-            slots = ""
+            slots = "N/A"
             break;
 
         case "lite":
@@ -248,9 +348,8 @@ function handleSubmit(event) {
             if (chooseA.checked) slots += "A"
             if (chooseB.checked) slots += "B"
             break;
-    
+
         default:
-            slots = ""
             break;
     }
 
@@ -277,13 +376,14 @@ function handleSubmit(event) {
         case "YCH":
             item = ychDetail
             break;
-    
+
         default:
             break;
     }
 
     const commInfo = {
         info: contactInfo,
+        type: type,
         item: item
     }
 
@@ -312,7 +412,7 @@ function emailCommission(data) {
 
         case "YCH":
             body = ychBody(data)
-    
+
         default:
             break;
     }
@@ -329,6 +429,8 @@ function commissionBody(data) {
         "\n" +
         "Payment email:\n" + data.info.email + "\n" +
         "\n" +
+        "---------\n" +
+        "\n" +
         "Style:\n" + data.item.details.style + "\n" +
         "Characters:\n" + data.item.details.characters + "\n" +
         "Description:\n" + data.item.details.description + "\n" +
@@ -336,7 +438,11 @@ function commissionBody(data) {
         "Subtotal: " + data.item.cost.subtotal + "€" + "\n" +
         "Background complexity: +" + data.item.details.background + "%\n" +
         "\n" +
+        "---------\n" +
+        "\n" +
         "Estimated total: " + data.item.cost.total + "€" + "\n" +
+        "\n" +
+        "---------\n" +
         "\n" +
         "If everything looks correct, attach or link any character reference you may want to add " +
         "and I'll get back to you through your preferred contact method.\n" +
@@ -349,12 +455,20 @@ function labsBody(data) {
         "\n" +
         "Payment email:\n" + data.info.email + "\n" +
         "\n" +
-        "Item:\n" + data.item.details.item.split(".")[0] + "\n" +
+        "---------\n" +
+        "\n" +
+        "Item:\n" + data.item.details.type + "\n" +
+        "\n" +
+        data.item.details.detail + "\n" +
+        "\n" +
+        "---------\n" +
         "\n" +
         "Estimated total: " + data.item.cost.total + "\n" +
         "\n" +
         "If everything looks correct, attach or link any character reference you may want to add " +
         "and I'll get back to you through your preferred contact method.\n" +
+        "\n" +
+        "---------\n" +
         "\n" +
         "This form is currently an experiment, so, if I may ask, how was it?"
 }
@@ -364,10 +478,16 @@ function ychBody(data) {
         "\n" +
         "Payment email:\n" + data.info.email + "\n" +
         "\n" +
+        "---------\n" +
+        "\n" +
         "YCH:\n" + data.item.details.item + "\n" +
         "Slots requested:\n" + data.item.details.slots + "\n" +
         "\n" +
+        "---------\n" +
+        "\n" +
         "Estimated total: " + data.item.cost.total + "€" + "\n" +
+        "\n" +
+        "---------\n" +
         "\n" +
         "If everything looks correct, attach or link any character reference you may want to add " +
         "and I'll get back to you through your preferred contact method.\n" +
@@ -409,7 +529,7 @@ Array.from(commissionType).forEach(element => {
     element.addEventListener("change", () => {
         if (element.checked) {
             type = element.id
-            hideSections()
+            swapSections()
         }
     })
 })
@@ -458,7 +578,7 @@ updateBgLabel()
 Array.from(commissionType).forEach(element => {
     if (element.checked) {
         type = element.id
-        hideSections()
+        swapSections()
     }
 })
 
