@@ -1,0 +1,101 @@
+---
+layout: ./main.njk
+isHero: true
+hasBlob: true
+
+title: Socials
+description: A collection of links for FatDawlf's social media and commission prices
+keywords: furry art, fat fur art, dawlf
+thumbnail: hero
+---
+
+<section class="hero gc" tabindex="0">
+    <div class="vc ac">
+        <div class="text">
+            <h1>Hi</h1>
+            <h2>I'm an artist that draws furries of all shapes and sizes.<br>
+                I offer art for fair prices, check them out in my social media here!</h2>
+        </div>
+        <div class="hc ac jc fw reflow" id="socials">
+            <div class="hc">
+                {% for entry in socials | head(3) %}
+                <a title="{{ entry.name }}" href="{{ entry.link }}" target="_blank">
+                    <i class="
+                            {% if not entry.isNotBrand %}
+                            fa-brands 
+                            {% else %}
+                            fa-solid
+                            {% endif %}
+
+                            {{ entry.icon }}
+                            " style="--highlight: {{ entry.color }}"></i>
+                </a>
+                {% endfor %}
+            </div>
+            <div class="hc">
+                {% for entry in socials | headafter(3) | head(3) %}
+                <a title="{{ entry.name }}" href="{{ entry.link }}" target="_blank">
+                    <i class="
+                            {% if not entry.isNotBrand %}
+                            fa-brands 
+                            {% else %}
+                            fa-solid
+                            {% endif %}
+
+                            {{ entry.icon }}
+                            " style="--highlight: {{ entry.color }}"></i>
+                </a>
+                {% endfor %}
+            </div>
+            <div class="hc">
+                {% for entry in socials | headafter(6) | head(3) %}
+                <a title="{{ entry.name }}" href="{{ entry.link }}" target="_blank">
+                    <i class="
+                            {% if not entry.isNotBrand %}
+                            fa-brands 
+                            {% else %}
+                            fa-solid
+                            {% endif %}
+
+                            {{ entry.icon }}
+                            " style="--highlight: {{ entry.color }}"></i>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<div class="content vc">
+    <section class="gc" id="pricesPeek">
+        <div class="hc ac jsb reflow">
+            <div class="card">
+                <h2>Commissions</h2>
+                <p>
+                    I offer a variety of styles so you can bring your ideas to life while staying affordable.<br>
+                    Check my social media for availability or for any questions you may have.
+                </p>
+                <p>
+                    More information, running sales, and examples linked below!
+                </p>
+                <a href="/commissions/" class="button">Check it out! <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <img class="rotateable" id="image" src="/media/commspeek.png" alt="A drawing for flavor">
+        </div>
+    </section>
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="hc fw jc">
+            {% for project in projects %}
+            <div class="card vc">
+                <h3>{{ project.name }}</h3>
+                {% for entry in project.desc %}
+                <p>{{ entry }}</p>
+                {% endfor %}
+                {% if project.link %}
+                <a class="button" href="{{project.link}}" target="_blank">Check it out!</a>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
