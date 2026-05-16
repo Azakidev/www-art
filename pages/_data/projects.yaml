@@ -1,0 +1,33 @@
+- name: The Dolfare
+  desc:
+    - The dolfare, or dawlfs.
+    - They are my open source furry species to which I'm developing a cohesive world, culture, and history for.
+    - Dawlfs are free to make and open to add features worldbuilding, and stories to their world.
+  link: https://github.com/Azakidev/Dawlf-index
+- name: Tales of Laraybis
+  desc:
+    - The collection of my character's stories.
+    - The full story of my main characters, Kurae and Nathaki, told in the form of three independent chapters.
+    - Very much an endless work in progress.
+- name: Heart of Sea
+  desc:
+    - A short story in the world of Laraybis.
+    - Heart of Sea is a short tale following an unnamed outsider to Laraybis in a vacation trip which quickly turned into a spiritual one.
+    - Despite happening long after the main story, it exposes some world-building and context for the series in a self contained way.
+  link: https://www.furaffinity.net/view/60995405/
+- name: Move
+  desc:
+    - An Android app for public transit.
+    - Move is an open source Android app for universally checking arriva times and other data for public transit services.
+  link: https://movetransit.app/
+- name: Brush
+  desc:
+    - An experimental panting app for Linux.
+    - Brush is an early work in progress panting app that I'm currently working on, inspired by Krita.
+  link: https://github.com/Azakidev/Brush
+- name: Piccolo
+  desc:
+    - A minimal yet delightful color picker for Linux.
+    - Piccolo is a simple color picker for Linux inspired by gcolor3 using GTK4, Libadwaita and Rust.
+    - The first version was developed in a single day as a challenge to myself, and it's available in Flathub.
+  link: https://github.com/Azakidev/Piccolo
