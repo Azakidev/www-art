@@ -9,7 +9,7 @@
         "yaml": "^2.8.1"
     },
     "scripts": {
-        "thumbs": "bash media/gallery/generate.sh",
+        "thumbs": "media/gallery/generate",
         "build": "npx @11ty/eleventy",
         "serve": "npx @11ty/eleventy --serve"
     }
