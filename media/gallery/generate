@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+#
+# Generate thumbnails for the gallery from the full resolution images
 
 FULRES_DIR="fullres"
 THUMBS_DIR="thumbs"
@@ -85,13 +87,14 @@ main() {
 		case $opt in 
 			r) regen=1;;			# Should remove generated files
 			h) usage; return 0;;	# Show usage, don't run
+			\?) fail "Unknown option";;
 			*) : ;; 				# No-op
 		esac
 	done
 	shift "$((OPTIND - 1))"
 
 	# Start run
-	if [[ $regen = 1 ]] && [[ -d "$(dirname "$0")/${THUMBS_DIR:?}" ]]; then
+	if [[ $regen == 1 ]] && [[ -d "$(dirname "$0")/${THUMBS_DIR:?}" ]]; then
 		rm -r "$(dirname "$0")/${THUMBS_DIR:?}"
 	fi
 
