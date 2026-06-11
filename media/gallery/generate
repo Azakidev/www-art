@@ -1,0 +1,110 @@
+#!/usr/bin/env bash
+#
+# Generate thumbnails for the gallery from the full resolution images
+
+FULRES_DIR="fullres"
+THUMBS_DIR="thumbs"
+IMAGES_JSON="$(dirname "$0")/../../pages/_data/images.json"
+SIZE=800
+OUTFORMAT="png"
+
+fail() {
+	echo "$1"
+	return 1
+}
+
+usage() {
+	local prog=${0##*/}
+	cat <<- EOF
+	Usage: $prog <options>
+	
+	Generate thumbnails for the gallery from the full resolution images.
+
+	Images should be named the folloring way: fa_id-title.ext
+	The title must use the following formatting:
+		_ instead of spaces
+		~ instead of ?
+	
+	Options:
+		-r	Regenerate all thumbnails
+		-h	Display this help message
+	EOF
+}
+
+setup() {
+	# Regenerate images.json
+	rm "$IMAGES_JSON"
+	touch "$IMAGES_JSON"
+	echo "{ \"files\": [" >> "$IMAGES_JSON"
+
+	# Create thumbs directory if it doesn't exist
+	mkdir -p "$(dirname "$0")/$THUMBS_DIR"
+}
+
+run() {
+	# Loop through all image files in fulres directory
+	for file in "$(dirname "$0")"/"${FULRES_DIR:?}"/*.png; do
+		# Extract info from file
+		local fa_id img_name post_date ts name
+		name=${file##*/}							# FA_ID-Name_of_file.ext
+		fa_id=$(cut -d "-" -f1 <<< "$name")			# FA_ID
+		img_name=$(cut -d "-" -f2 <<< "$name" | cut -d "." -f1)		# Name_of_file.ext"
+		post_date=$(date -r "$file" +"%Y-%m-%d")
+		ts=$(stat -c '%Y' "$file")
+
+		# Generate thumbnails if they don't exist
+		if ! [[ -f "$(dirname "$0")/$THUMBS_DIR/$fa_id-$img_name.$OUTFORMAT" ]]; then
+			# Use rav1e for much faster speeds
+			if [[ $OUTFORMAT == "avif" ]]; then
+				ffmpeg -hide_banner -loglevel error -i "$file" \
+					-vf "scale=$SIZE:$SIZE:force_original_aspect_ratio=decrease" \
+					-c:v librav1e -q:v 2 \
+					"$(dirname "$0")"/$THUMBS_DIR/"$fa_id"-"$img_name".$OUTFORMAT
+			else
+				ffmpeg -hide_banner -loglevel error -i "$file" \
+					-vf "scale=$SIZE:$SIZE:force_original_aspect_ratio=decrease" \
+					-q:v 2 \
+					"$(dirname "$0")"/$THUMBS_DIR/"$fa_id"-"$img_name".$OUTFORMAT
+			fi
+		fi
+
+		# Add image info to images.json
+		echo "{\"image\":\"$img_name\",\"fa_id\":\"$fa_id\",\"date\":\"$post_date\",\"ts\":\"$ts\"}," >> "$IMAGES_JSON"
+	done
+	# Remove trailing comma from images.json
+	sed -i '$ s/,$//' "$IMAGES_JSON"
+	# Close the json file
+	echo "] }" >> "$IMAGES_JSON"
+}
+
+main() {
+	# Check ffmpeg
+	ffmpeg -version &> /dev/null || fail "ffmpeg not installed"
+
+	# Handle arguments
+	local opt OPTIND OPTARG regen
+	while getopts 'rh' opt; do
+		case $opt in 
+			r) regen=1;;			# Should remove generated files
+			h) usage; return 0;;	# Show usage, don't run
+			\?) fail "Unknown option";;
+			*) : ;; 				# No-op
+		esac
+	done
+	shift "$((OPTIND - 1))"
+
+	# Start run
+	if [[ $regen == 1 ]] && [[ -d "$(dirname "$0")/${THUMBS_DIR:?}" ]]; then
+		rm -r "$(dirname "$0")/${THUMBS_DIR:?}"
+	fi
+
+	setup
+
+	echo "Generating image thumbnails and data"
+	run
+	echo "Done"
+
+	"$@"
+}
+
+main "$@"
