@@ -9,7 +9,7 @@ const base_url = "https://www.furaffinity.net/view/"
 var files = fetch('/_data/images.json')
     .then(response => response.json())
     .then(data => {
-        data.files.sort(compareById).sort(compareByDate).reverse().forEach(file => {
+        data.files.sort(compareById).reverse().forEach(file => {
             const container = document.createElement('div');
 
             var name = file.image.replace(/\_/g, ' ').replace('~', '?');
