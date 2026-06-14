@@ -33,6 +33,8 @@ jobs:
       - name: Setup ffmpeg
         uses: FedericoCarboni/setup-ffmpeg@v3.1
         id: setup-ffmpeg
+        env:
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
         with:
           ffmpeg-version: release
           architecture: ''
