@@ -4,22 +4,10 @@
   price: 20/40
   type: choose
 
-- id: pinned
-  name: Pinned!
-  description: A POV of someone being pinned by a larger fur.
-  price: 10/30
-  type: lite
-
-- id: mobile
-  name: '"Mobile"'
-  description: A very obese character as seen from a low angle, struggling to hold onto straps coming down from the ceiling, one of them slipped off their hand. Their legs are struggling to catch it again.
-  price: 40
-  type: single
-
-- id: gurgle
-  name: Gurgle
-  description: A character's close up image of their belly, with the text 'Gurgle' beside it.
-  price: 10
+- id: joy
+  name: Joyous
+  description: A character doing the "joy" meme face
+  price: 20
   type: single
 
 - id: sit
