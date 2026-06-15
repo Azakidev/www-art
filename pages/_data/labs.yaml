@@ -3,12 +3,12 @@
   description: Reference sheets, starting at 40€
   price: 40€+
 
+- id: portraits.png
+  name: Painted Portraits
+  description: A painted portrait of a character, going from 40€ to 60€
+  price: 40-60€
+
 - id: stickers.png
   name: Stickers
   description: A set of stickers
   price: 25€ / 5
-
-- id: animloop.avif
-  name: Short animation
-  description: A short breathing animation of Nathaki
-  price: Ask!
