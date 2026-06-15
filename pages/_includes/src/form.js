@@ -25,10 +25,10 @@ const labsPicker = document.getElementById("labsPicker")
 // Prompts
 const refsPrompt = document.getElementById("refsPrompt")
 const stickerPrompt = document.getElementById("stickerPrompt")
-const animPrompt = document.getElementById("animPrompt")
+const portraitPrompt = document.getElementById("portraitPrompt")
 // Inputs
 const refsDescription = document.getElementById("refsDescription")
-const animDescription = document.getElementById("animDescription")
+const portraitDescription = document.getElementById("portraitDescription")
 const sticker1 = document.getElementById("sticker1")
 const sticker2 = document.getElementById("sticker2")
 const sticker3 = document.getElementById("sticker3")
@@ -152,12 +152,12 @@ function updateRequired() {
                 sticker5.required = false
             }
 
-            if (labsPicker.value.split(".")[0] == "animloop") {
-                animPrompt.classList.remove("hidden")
-                animDescription.required = true
+            if (labsPicker.value.split(".")[0] == "portraits") {
+                portraitPrompt.classList.remove("hidden")
+                portraitDescription.required = true
             } else {
-                animPrompt.classList.add("hidden")
-                animDescription.required = false
+                portraitPrompt.classList.add("hidden")
+                portraitDescription.required = false
             }
             break;
 
@@ -315,8 +315,8 @@ function handleSubmit(event) {
                 "5. " + data.get("sticker5")
             break;
 
-        case "animloop":
-            detail = data.get("animDescription")
+        case "portraits":
+            detail = data.get("portraitDescription")
             break;
 
         default:

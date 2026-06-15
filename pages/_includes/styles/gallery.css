@@ -44,6 +44,7 @@
 
 #gallery {
     display: grid;
+    display: grid-lanes;
     grid-template-columns: repeat(auto-fill, minmax(min(350px, 100vw/3), 1fr));
     grid-template-rows: masonry;
     gap: var(--margin);
@@ -74,7 +75,7 @@
             position: absolute;
             width: 100%;
             height: calc(var(--margin) * 2);
-            
+
             overflow: hidden;
             cursor: auto;
             transition-duration: 200ms;
@@ -95,10 +96,10 @@
                 text-wrap: nowrap;
                 position: relative;
                 z-index: 1;
-                
+
                 margin: 0;
                 padding: calc(var(--margin) / 4) calc(var(--margin) / 2);
-                
+
                 &>a {
                     padding: 0;
                     font-family: 'Nunito', sans-serif;
