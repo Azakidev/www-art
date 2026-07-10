@@ -60,6 +60,7 @@
     position: fixed;
     top: 0;
     width: 100vw;
+    min-width: 400px;
     z-index: 99;
 }
 
