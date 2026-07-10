@@ -1,6 +1,10 @@
-#Nath>.charcard { --accent-color: #9172B1; }
+#Nath>.charcard {
+    --accent-color: #9172B1;
+}
 
-#Kurae>.charcard {--accent-color: #43436B; }
+#Kurae>.charcard {
+    --accent-color: #43436B;
+}
 
 #Maxwell>.charcard {
     --accent-color: #AAE3D3;
@@ -8,12 +12,24 @@
 }
 
 #Reimi {
-    &>.charcard { --accent-color: #6c9d66; }
-    &>h2 { margin-bottom: calc(15% / 2); }
+    &>.charcard {
+        --accent-color: #6c9d66;
+    }
+
+    &>h2 {
+        margin-bottom: calc(15% / 2);
+    }
 }
 
-#Aeon>.charcard { --accent-color: #708fa7; }
+#Aeon>.charcard {
+    --accent-color: #708fa7;
+}
 
-#Nasu>.charcard { --accent-color: #049BFB; }
+#Nasu>.charcard {
+    --accent-color: #049BFB;
+}
 
-#Clank>.charcard { --accent-color: #FFBC55; }
+#Clank>.charcard {
+    --accent-color: #FFBC55;
+    --text-color: #333;
+}
