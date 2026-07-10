@@ -84,14 +84,14 @@
     position: fixed;
     bottom: 0;
     right: 0;
-    
+
     margin: 1rem;
     margin-bottom: var(--margin);
 
     display: flex;
     flex-direction: column;
     gap: .5rem;
-    
+
     &>span {
         &>i {
             aspect-ratio: 1;
@@ -99,7 +99,7 @@
 
             color: var(--text-soft);
             font-size: calc(var(--text-medium) * 0.75);
-            
+
             display: grid;
             place-content: center;
             padding: 10px;
@@ -149,14 +149,17 @@ section {
 .character {
     background-color: transparent;
     transition-property: scale;
+
     display: flex;
     justify-content: center;
-    
+    align-items: center;
+
     & img {
         transition-duration: 200ms;
         width: 100%;
-        object-fit: contain;
-        
+        max-height: 75vh;
+        object-fit: scale-down;
+
         user-select: none;
         -webkit-user-select: none;
     }
