@@ -31,3 +31,8 @@
     - Piccolo is a simple color picker for Linux inspired by gcolor3 using GTK4, Libadwaita and Rust.
     - The first version was developed in a single day as a challenge to myself, and it's available in Flathub.
   link: https://github.com/Azakidev/Piccolo
+- name: Music Pack Maker
+  desc:
+    - A tool for making custom music packs for Minecraft written in Bash
+    - It works without overriding any disc from the game and lets you make custom crafting recipes and sprites for each and every disc.
+  link: https://github.com/Azakidev/music_pack_maker
