@@ -13,10 +13,17 @@ isMusing: true
     <h1>{{ title }}</h1>
     <section class="vc" id="content">
         {% if not isRoot %}
-        <p class="subtext">Written {{ page.date | postDate }}</p>
+        <p class="subtext">
+            {% if showUpdate %}
+                Updated
+            {% else %}
+                Written
+            {% endif %}
+            {{ page.date | postDate }}
+        </p>
         {% endif %}
 
-        {%- if thumbnail != null %}
+        {%- if thumbnail != null and not hideBanner %}
         <img id="thumb" src="/media/thumbs/musings/{{ thumbnail }}.png" loading="lazy" alt="">
         {%- endif %}
 
@@ -32,9 +39,11 @@ isMusing: true
     {% endif %}
 </div>
 
+{% if not hideFab %}
 <div class="vc ae" id="fabCont">
     <span id="fabPopup">Copied feed link!</span>
     <a class="fab" id="rssButton" aria-role="button" title="RSS/Atom Feed">
         <i class="fa-solid fa-rss"></i>
     </a>
 </div>
+{% endif %}
