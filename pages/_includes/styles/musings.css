@@ -209,7 +209,7 @@ hr {
             left: calc(var(--margin) / 1.5);
         }
     }
-    
+
     & #nextPost {
         h3 {
             padding-right: var(--margin);
@@ -247,6 +247,11 @@ pre, blockquote {
         margin-inline: var(--margin) !important;
         border-bottom: 2px solid rgb(from white r g b / 0.2);
         font-style: italic;
+
+        &>ul {
+            font-style: normal;
+            margin-inline-start: calc(var(--margin) / 2) !important;
+        }
     }
 }
 

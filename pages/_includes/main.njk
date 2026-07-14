@@ -127,8 +127,8 @@
     {%- if isForm %}
     {% include "./src/form.js" %}
     {%- endif %}
-    
-    {%- if isMusing %}
+
+    {%- if isMusing and not hideFab %}
     {% include "./src/fab.js" %}
     {% include "./src/rss.js" %}
     {%- endif %}

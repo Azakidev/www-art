@@ -36,3 +36,9 @@
     - A tool for making custom music packs for Minecraft written in Bash
     - It works without overriding any disc from the game and lets you make custom crafting recipes and sprites for each and every disc.
   link: https://github.com/Azakidev/music_pack_maker
+- name: Nath's Music Pack
+  desc:
+    - A music data and resource pack for vanilla Minecraft.
+    - It is the pack I made alongside the Music Pack Maker tool.
+    - It contains 10 tracks of original music, one of which previously unreleased
+  link: /music_pack
