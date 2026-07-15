@@ -24,8 +24,8 @@ The pack is both a datapack, to add the disc recipes and make the content
 accessible, and a resource pack with the actual music and sprites. Make sure
 both are added to your world and client respectively.
 
-<div class="hc ac jc">
-<a class="button" href="/media/music_pack/Nath's Music Pack Data.zip" download>Download datapack</a>
+<div class="hc ac jc fw">
+<a class="button" href="/media/music_pack/Nath's Music Pack Data.zip" download>Download Datapack</a>
 <a class="button" href="/media/music_pack/Nath's Music Pack Resources.zip" download>Download Resourcepack</a>
 </div>
 
