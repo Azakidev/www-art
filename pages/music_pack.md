@@ -21,8 +21,15 @@ I have been told that my music would sound right at home in Minecraft, and I'd
 agree. Hopefully you'll enjoy it as much as I did building this.
 
 The pack is both a datapack, to add the disc recipes and make the content
-accessible, and a resource pack with the actual music and sprites. Make sure
+accessible, and a resource pack, with the actual music and sprites. Make sure
 both are added to your world and client respectively.
+
+Note that the datapack is considered experimental by Minecraft as it includes
+content that cannot be reloaded without exiting and rejoining the world. This
+shows in game as a prompt when joining the world in singleplayer each time
+mentioning potential troubles with world generation. The message doesn't affect
+this pack as it doesn't include any worldgen elements, removing the pack will
+only render the discs useless and uncraftable.
 
 <div class="hc ac jc fw">
 <a class="button" href="/media/music_pack/Nath's Music Pack Data.zip" download>Download Datapack</a>
