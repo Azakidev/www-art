@@ -10,6 +10,12 @@
   price: 20
   type: single
 
+- id: crusher
+  name: Crusher
+  description: Two characters, one much fatter than the other. The larger one laying on the smaller one, obscuring most of them.
+  price: 20/40
+  type: choose
+
 - id: sit
   name: Sit sticker
   description: Two characters, one sitting on the other's face.
