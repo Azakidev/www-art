@@ -1,0 +1,55 @@
+- id: Nath
+  name: Nathaki Noguichi
+  pronouns: They/Them
+  desc:
+    - A bastard dawlf, my main character.
+    - Born in Laraybis, but not raised there, they were instead adopted by the Noguichi family on Terra as per Kurae's request.
+    - Yes, you may hug them.
+
+- id: Kurae
+  name: Kurae Noguichi
+  pronouns: He/Him
+  desc:
+    - A noble two-tailed fennec folf.
+    - The last person alive with Noguichi blood and older brother of Nathaki, with who he spends most of his days to make up for time lost during their childhoods.
+    - He's also a skilled and resourceful swordsman.
+
+- id: Maxwell
+  name: Maxwell
+  pronouns: He/Him
+  desc:
+    - A tough-looking snow leopard with a hidden soft side.
+    - His birthplace is unknown, abandoned when he was just a cub. He has been aimless for years since.
+    - With the help of Nathaki, Kurae and Clank, he finally found himself, a place to call home, and people to call his family.
+
+- id: Nasu
+  name: Nasu
+  pronouns: It/They/He
+  desc:
+    - A sergal turned protogen, given a second chance.
+    - It used to be a sergal kid who, after a fatal accident, had their body donated for scientific research by its parents.
+    - A company researching robotics made use of the body to create the half organic robot it is now.
+
+- id: Reimi
+  name: Reimerius Santos
+  pronouns: He/Him
+  desc:
+    - A smug and hefty poison dragon, who's also known as Reimi.
+    - The youngest and shortest (although definitely not the lightest) among his 9 siblings, this Brazilian dragon enjoys his days working as a beach lifeguard.
+    - You'd be surprised as to how agile he can be.
+
+- id: Clank
+  name: Clank Cogwheel
+  pronouns: He/Him
+  desc:
+    - An unreadable raccoon.
+    - Good with machines, but not with people. He prefers to keep things simple in his life.
+    - He is always busy doing something, to the point no one person knows everything going on with him.
+
+- id: Aeon
+  name: Aeon
+  pronouns: He/It
+  desc:
+    - A star, in the form of a bluebird.
+    - Stars are the avatars of the gods, this one is in charge of looking over the dawlfs and Laraybis.
+    - They ended up damaged and stuck in this form when he descended to Earth long ago.
