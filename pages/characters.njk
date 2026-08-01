@@ -14,109 +14,35 @@ tags: destination
     <span class="next"><i class="fa-solid fa-fw fa-arrow-down"></i></span>
 </div>
 
-<section class="hc jsb ac reflow" id="Nath">
+{% for character in characters %}
+{%- set sectionClasses = "hc jsb ac reflow" %}
+{%- set imgClasses = "character" %}
+
+{%- set isOdd = (loop.index0 % 2 !== 0) %}
+{%- if isOdd -%}
+    {%- set sectionClasses = sectionClasses + " reverse" %}
+    {%- set imgClasses = imgClasses + " reverseimg" %}
+{%- endif -%}
+
+
+<section class="{{ sectionClasses }}" id="{{ character.id }}">
     <div class="charcard gc">
         <div class="text">
-            <h1>Nathaki Noguichi</h1>
-            <h2>They/Them</h2>
+            <h1>{{ character.name }}</h1>
+            <h2>{{ character.pronouns }}</h2>
 
-            <p>A bastard dawlf, my main character.</p>
-            <p>Born in Laraybis, but not raised there, they were instead adopted
-                by the Noguichi family on Terra as per Kurae's request.</p>
-            <p>Yes, you may hug them.</p>
+            {%- for p in character.desc -%}
+            <p>{{p}}</p>
+            {%- endfor -%}
         </div>
     </div>
-    <div class="character"><img src="/media/characters/Nath.png" alt="Drawing of Nathaki"></div>
+    <div class="{{ imgClasses }}">
+        <img src="/media/characters/{{ character.id }}.png" alt="Drawing of {{ character.id }}">
+    </div>
 </section>
+
+{%- if not loop.last -%}
 <div class="separator"></div>
-<section class="hc jsb ac reflow reverse" id="Kurae">
-    <div class="charcard gc">
-        <div class="text">
-            <h1>Kurae Noguichi</h1>
-            <h2>He/Him</h2>
+{%- endif -%}
 
-            <p>A noble two-tailed fennec folf.</p>
-            <p>The last person alive with Noguichi blood and older brother of Nathaki, with who he spends most of his
-                days to make up for time lost during their childhoods.</p>
-            <p>He's also a skilled and resourceful swordsman.</p>
-        </div>
-    </div>
-    <div class="character reverseimg"><img loading="lazy" src="/media/characters/Kurae.png" alt="Drawing of Kurae">
-    </div>
-</section>
-<div class="separator"></div>
-<section class="hc jsb ac reflow" id="Maxwell">
-    <div class="charcard gc">
-        <div class="text">
-            <h1>Maxwell</h1>
-            <h2>He/Him</h2>
-
-            <p>A tough-looking snow leopard with a hidden soft side.</p>
-            <p>His birthplace is unknown, abandoned when he was just a cub. He
-                has been aimless for years since.</p>
-            <p>With the help of Nathaki, Kurae and Clank, he finally found
-                himself, a place to call home, and people to call his family.</p>
-        </div>
-    </div>
-    <div class="character"><img loading="lazy" src="/media/characters/Maxwell.png" alt="Drawing of Maxwell"></div>
-</section>
-<div class="separator"></div>
-<section class="hc jsb ac reflow" id="Reimi">
-    <div class="charcard gc">
-        <div class="text">
-            <h1>Reimerius Santos</h1>
-            <h2>He/Him</h2>
-
-            <p>A smug and hefty poison dragon, who's also known as Reimi.</p>
-            <p>The youngest and shortest (although definitely not the lightest) among his 9 siblings, this Brazilian
-                dragon enjoys his days working as a beach lifeguard.</p>
-            <p>You'd be surprised as to how agile he can be.</p>
-        </div>
-    </div>
-    <div class="character"><img loading="lazy" src="/media/characters/Reimi.png" alt="Drawing of Reimi"></div>
-</section>
-<div class="separator"></div>
-<section class="hc jsb ac reflow reverse" id="Nasu">
-    <div class="charcard gc">
-        <div class="text">
-            <h1>Nasu</h1>
-            <h2>He/They/It</h2>
-
-            <p>A sergal turned protogen, given a second chance.</p>
-            <p>It used to be a sergal kid who, after a fatal accident, had their body donated for scientific research by
-                its parents.</p>
-            <p>A company researching robotics made use of the body to create the
-                half organic robot it is now.</p>
-        </div>
-    </div>
-    <div class="character reverseimg"><img loading="lazy" src="/media/characters/Nasu.png" alt="Drawing of Nasu"></div>
-</section>
-<div class="separator"></div>
-<section class="hc jsb ac reflow" id="Clank">
-    <div class="charcard gc">
-        <div class="text">
-            <h1>Clank Cogwheel</h1>
-            <h2>He/Him</h2>
-
-            <p>An unreadable raccoon.</p>
-            <p>Good with machines, but not with people. He prefers to keep things simple in his life.</p>
-            <p>He is always busy doing something, to the point no one person
-                knows everything going on with him.</p>
-        </div>
-    </div>
-    <div class="character"><img loading="lazy" src="../media/characters/Clank.png" alt="Drawing of Clank"></div>
-</section>
-<div class="separator"></div>
-<section class="hc jsb ac reflow" id="Aeon">
-    <div class="charcard gc">
-        <div class="text">
-            <h1>Aeon</h1>
-            <h2>He/Him</h2>
-
-            <p>A star, in the form of a bluebird.</p>
-            <p>Stars are the avatars of the gods, this one is in charge of looking over the dawlfs and Laraybis.</p>
-            <p>They ended up damaged and stuck in this form when he descended to Earth long ago.</p>
-        </div>
-    </div>
-    <div class="character"><img loading="lazy" src="/media/characters/Aeon.png" alt="Drawing of Aeon"></div>
-</section>
+{% endfor %}
