@@ -6,6 +6,8 @@ const fabPopup = document.getElementById('fabPopup');
 const outformat = "png";
 const base_url = "https://www.furaffinity.net/view/"
 
+var count = 0;
+
 var files = fetch('/_data/images.json')
     .then(response => response.json())
     .then(data => {
@@ -48,6 +50,14 @@ var files = fetch('/_data/images.json')
             });
 
             overlay.appendChild(link);
+
+            const preloader = document.createElement("link");
+            preloader.rel = (count <= 12) ? "preload" : "prefetch";
+            preloader.href = `/media/gallery/fullres/${file.fa_id}-${file.image}.${outformat}`;
+            if (count <= 12) preloader.as = "image";
+            if (count <= 12) preloader.type = "image/png";
+            document.head.appendChild(preloader);
+            count++;
 
             img.addEventListener('click', () => {
                 if ((!document.startViewTransition) || (window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
