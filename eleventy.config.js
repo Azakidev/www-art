@@ -1,3 +1,4 @@
+import { IdAttributePlugin } from "@11ty/eleventy";
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import { minify } from "terser";
 import YAML from "yaml";
@@ -16,6 +17,16 @@ export default async function(eleventyConfig) {
     eleventyConfig.addWatchTarget("./_includes/**/*");
 
     // Plugins
+    eleventyConfig.addPlugin(IdAttributePlugin, {
+        filter: function({ page }) {
+            if (page.inputPath.includes("dolfare")) {
+                return true;
+            }
+
+            return false;
+        }
+    });
+
     eleventyConfig.addPlugin(feedPlugin, {
         type: "atom",
         outputPath: "/feed.xml",
@@ -74,7 +85,7 @@ export default async function(eleventyConfig) {
             day: "numeric",
         });
     });
-    
+
     // Setup YAML data
     eleventyConfig.addDataExtension("yaml", (contents) => YAML.parse(contents));
 };

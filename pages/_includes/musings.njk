@@ -24,7 +24,12 @@ isMusing: true
         {% endif %}
 
         {%- if thumbnail != null and not hideBanner %}
-        <img id="thumb" src="/media/thumbs/musings/{{ thumbnail }}.png" loading="lazy" alt="">
+        {% set thumbSource = "musings" %}
+        {%- if "dolfare" in tags %}
+            {% set thumbSource = "dolfare" %}
+        {%- endif -%}
+        <img id="thumb" src="/media/thumbs/{{ thumbSource }}/{{ thumbnail }}.png" loading="lazy"
+        alt="The thumbnail for the current article">
         {%- endif %}
 
         {{ content | safe }}
