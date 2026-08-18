@@ -2,7 +2,11 @@
 <meta property="og:type" content="article">
 
 {% if isMusing %}
-<meta property="og:image" content="https://fatdawlf.art/media/thumbs/musings/{{ thumbnail }}.png">
+{% set thumbSource = "musings" %}
+{%- if "dolfare" in tags %}
+    {% set thumbSource = "dolfare" %}
+{%- endif -%}
+<meta property="og:image" content="https://fatdawlf.art/media/thumbs/{{ thumbSource }}/{{ thumbnail }}.png">
 {% else %}
 <meta property="og:image" content="https://fatdawlf.art/media/thumbs/{{ thumbnail }}.png">
 {% endif %}
