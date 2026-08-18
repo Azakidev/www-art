@@ -7,6 +7,8 @@ thumbnail: music_pack
 
 keywords: Minecraft, music, pack, datapack, resource, custom, vanilla
 
+tags: music
+
 showUpdate: true
 hideFab: true
 hideBanner: true
