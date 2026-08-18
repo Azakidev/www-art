@@ -12,6 +12,7 @@ isMusing: true
 <div class="vc ac">
     <h1>{{ title }}</h1>
     <section class="vc" id="content">
+        {% if not isRoot %}
         <p class="subtext">
             {% if showUpdate %}
                 Updated
@@ -20,9 +21,15 @@ isMusing: true
             {% endif %}
             {{ page.date | postDate }}
         </p>
+        {% endif %}
 
         {%- if thumbnail != null and not hideBanner %}
-        <img id="thumb" src="/media/thumbs/musings/{{ thumbnail }}.png" loading="lazy" alt="">
+        {% set thumbSource = "musings" %}
+        {%- if "dolfare" in tags %}
+            {% set thumbSource = "dolfare" %}
+        {%- endif -%}
+        <img id="thumb" src="/media/thumbs/{{ thumbSource }}/{{ thumbnail }}.png" loading="lazy"
+        alt="The thumbnail for the current article">
         {%- endif %}
 
         {{ content | safe }}
