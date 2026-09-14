@@ -31,6 +31,12 @@
     - Piccolo is a simple color picker for Linux inspired by gcolor3 using GTK4, Libadwaita and Rust.
     - The first version was developed in a single day as a challenge to myself, and it's available in Flathub.
   link: https://github.com/Azakidev/Piccolo
+- name: Lupa
+  desc:
+    - A minimal and extensible launcher for Linux.
+    - It is built on gtk4-layer-shell and Libadwaita, written in Rust with a Lua plugin system.
+    - It is packaged for the AUR and NixOS, both of which are -git style packages.
+  link: https://github.com/Azakidev/lupa
 - name: Music Pack Maker
   desc:
     - A tool for making custom music packs for Minecraft written in Bash
